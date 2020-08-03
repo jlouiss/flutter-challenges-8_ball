@@ -1,3 +1,5 @@
+import 'dart:math' show Random;
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -38,7 +40,14 @@ class _BallState extends State<Ball> {
       color: Colors.blueGrey.shade300,
       child: Center(
         child: Expanded(
-          child: Image.asset('images/ball$ballNumber.png'),
+          child: FlatButton(
+            child: Image.asset('images/ball$ballNumber.png'),
+            onPressed: () {
+              setState(() {
+                ballNumber = Random().nextInt(4) + 1;
+              });
+            },
+          ),
         ),
       ),
     );
